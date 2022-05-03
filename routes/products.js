@@ -20,4 +20,17 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.post('/update/:id', async (req, res) => {
+    try {
+        const product = await Products.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true }
+        );
+        return res.json(product);
+    } catch (error) {
+        return res.status(400).json({ message: error.message });
+    }
+});
+
 module.exports = router;
