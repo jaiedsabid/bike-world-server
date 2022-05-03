@@ -50,7 +50,12 @@ router.post('/update/:id', async (req, res) => {
 router.delete('/delete/:id', async (req, res) => {
     try {
         const product = await Products.findByIdAndDelete(req.params.id);
-        return res.json(product);
+
+        if (!product) {
+            return res.status(404).json({ message: 'Product not found' });
+        }
+
+        return res.sendStatus(200);
     } catch (error) {
         return res.status(400).json({ message: error.message });
     }
