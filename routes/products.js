@@ -33,4 +33,13 @@ router.post('/update/:id', async (req, res) => {
     }
 });
 
+router.delete('/delete/:id', async (req, res) => {
+    try {
+        const product = await Products.findByIdAndDelete(req.params.id);
+        return res.json(product);
+    } catch (error) {
+        return res.status(400).json({ message: error.message });
+    }
+});
+
 module.exports = router;
