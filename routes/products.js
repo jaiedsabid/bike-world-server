@@ -11,6 +11,15 @@ router.post('/create', async (req, res) => {
     }
 });
 
+router.get('/:id', async (req, res) => {
+    try {
+        const product = await Products.findById(req.params.id);
+        return res.json(product);
+    } catch (error) {
+        return res.status(400).json({ message: error.message });
+    }
+});
+
 router.get('/', async (req, res) => {
     try {
         const products = await Products.find();
