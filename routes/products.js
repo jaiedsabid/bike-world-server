@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const verifyToken = require('../middlewares/custom-middlewares');
 const Products = require('../models/productsModel');
 
 router.post('/create', async (req, res) => {
@@ -25,9 +26,12 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.get('/', async (req, res) => {
+router.get('/', verifyToken, async (req, res) => {
     try {
-        const products = await Products.find();
+        const userEmail = req.query.user;
+        const query = userEmail ? { createdBy: userEmail } : {};
+        const products = await Products.find(query, { createdBy: 0 });
+
         return res.json(products);
     } catch (error) {
         return res.status(400).json({ message: error.message });
