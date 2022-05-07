@@ -1,12 +1,10 @@
 const mongoose = require('mongoose');
 
-const DB_URL =
-    'mongodb+srv://database:mydatabase@database.4njto.mongodb.net/products?retryWrites=true&w=majority';
+const DB_URL = `mongodb+srv://database:${process.env.PROJECT_DB_PASSWORD}@database.4njto.mongodb.net/${process.env.PROJECT_DB_NAME}?retryWrites=true&w=majority`;
 
 mongoose.set('returnOriginal', false);
 mongoose
     .connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-    // eslint-disable-next-line no-console
     .then(() => console.log('Database connected!'))
     .catch((err) => `Error connecting database: ${err.message}`);
 
