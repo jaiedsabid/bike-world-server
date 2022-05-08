@@ -38,7 +38,7 @@ router.get('/', verifyToken, async (req, res) => {
     }
 });
 
-router.post('/update/:id', async (req, res) => {
+router.put('/update/:id', async (req, res) => {
     try {
         const product = await Products.findByIdAndUpdate(
             req.params.id,
