@@ -4,6 +4,8 @@
 
 ### [REST API](https://bike-world-server-jaied.herokuapp.com/) 👈 Click here
 
+### [Client Repository](https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-jaiedsabid)
+
 ## Description
 
 A simple bike inventory management system built using React, NodeJS, Express JS, Firebase, Heroku, and MongoDB. Tailwind CSS is used to build the UI. For user authentication used firebase-authentication and for authorization used JWT on the server-side.
