@@ -4,7 +4,7 @@
 
 ### [REST API](https://bike-world-server-jaied.herokuapp.com/) 👈 Click here
 
-### [Client Repository](https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-jaiedsabid)
+### [Client Repository](https://github.com/jaiedsabid/bike-world-client)
 
 ## Description
 
